@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ava/Documents/Master/gamera/src/machine/cpu.cpp" "CMakeFiles/gamera.dir/src/machine/cpu.cpp.o" "gcc" "CMakeFiles/gamera.dir/src/machine/cpu.cpp.o.d"
+  "/home/ava/Documents/Master/gamera/src/machine/decoder.cpp" "CMakeFiles/gamera.dir/src/machine/decoder.cpp.o" "gcc" "CMakeFiles/gamera.dir/src/machine/decoder.cpp.o.d"
   "/home/ava/Documents/Master/gamera/src/machine/memory.cpp" "CMakeFiles/gamera.dir/src/machine/memory.cpp.o" "gcc" "CMakeFiles/gamera.dir/src/machine/memory.cpp.o.d"
   "/home/ava/Documents/Master/gamera/src/main.cpp" "CMakeFiles/gamera.dir/src/main.cpp.o" "gcc" "CMakeFiles/gamera.dir/src/main.cpp.o.d"
   )

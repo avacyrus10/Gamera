@@ -153,6 +153,30 @@ src/machine/cpu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/cpu.cpp.s
 .PHONY : src/machine/cpu.cpp.s
 
+src/machine/decoder.o: src/machine/decoder.cpp.o
+.PHONY : src/machine/decoder.o
+
+# target to build an object file
+src/machine/decoder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/decoder.cpp.o
+.PHONY : src/machine/decoder.cpp.o
+
+src/machine/decoder.i: src/machine/decoder.cpp.i
+.PHONY : src/machine/decoder.i
+
+# target to preprocess a source file
+src/machine/decoder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/decoder.cpp.i
+.PHONY : src/machine/decoder.cpp.i
+
+src/machine/decoder.s: src/machine/decoder.cpp.s
+.PHONY : src/machine/decoder.s
+
+# target to generate assembly for a file
+src/machine/decoder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/decoder.cpp.s
+.PHONY : src/machine/decoder.cpp.s
+
 src/machine/memory.o: src/machine/memory.cpp.o
 .PHONY : src/machine/memory.o
 
@@ -213,6 +237,9 @@ help:
 	@echo "... src/machine/cpu.o"
 	@echo "... src/machine/cpu.i"
 	@echo "... src/machine/cpu.s"
+	@echo "... src/machine/decoder.o"
+	@echo "... src/machine/decoder.i"
+	@echo "... src/machine/decoder.s"
 	@echo "... src/machine/memory.o"
 	@echo "... src/machine/memory.i"
 	@echo "... src/machine/memory.s"

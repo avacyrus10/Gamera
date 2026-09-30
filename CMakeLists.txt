@@ -12,4 +12,5 @@ add_executable(gamera
     src/main.cpp
     src/machine/cpu.cpp
     src/machine/memory.cpp
+    src/machine/decoder.cpp
 )

@@ -1,7 +1,8 @@
 #include "cpu.hpp"
+#include <stdexcept>
 
-CPU::CPU()
-    : pc(0), registers{}
+CPU::CPU(Memory& memory)
+    : pc(0), registers{}, memory(memory)
 {
 
 }
@@ -16,5 +17,18 @@ CPU::CPU()
         return registers[index];
     }
     void CPU::setRegister(std::size_t index, uint32_t value){
+            if(index >= registers.size()){
+                throw std::out_of_range("register index out of range");
+            }
+            if(index == 0){
+                value = 0;
+            }
             registers[index] = value;
+    }
+    void CPU::execute(const Instruction instruction){
+        //switch-case on opcode
+    }
+
+    uint32_t CPU::fetch() const{
+        return memory.readWord(pc);
     }

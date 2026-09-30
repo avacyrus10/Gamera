@@ -1,26 +1,30 @@
 #include <iostream>
-#include "machine/memory.hpp"
 
 #include "machine/cpu.hpp"
+#include "machine/decoder.hpp"
+#include "machine/memory.hpp"
 
 int main()
 {
-    CPU cpu;
-
-    std::cout << "PC: " << cpu.getPC() << '\n';
-    std::cout << "R0: " << cpu.getRegister(0) << '\n';
-
-    cpu.setPC(100);
-    cpu.setRegister(5, 42);
-
-    std::cout << "PC: " << cpu.getPC() << '\n';
-    std::cout << "R5: " << cpu.getRegister(5) << '\n';
-
     Memory memory(1024);
+    CPU cpu(memory);
 
-memory.writeWord(100, 0x12345678);
+    uint32_t add =
+          (0x00 << 25)
+        | (2    << 20)
+        | (1    << 15)
+        | (0x0  << 12)
+        | (3    << 7)
+        | 0x33;
 
-std::cout << std::hex << memory.readWord(100) << '\n';
+    memory.writeWord(0, add);
 
-    return 0;
+    uint32_t raw = cpu.fetch();
+
+    Instruction instruction = decode(raw);
+
+    std::cout << "opcode: " << static_cast<int>(instruction.opcode) << '\n';
+    std::cout << "rd: " << static_cast<int>(instruction.rd) << '\n';
+    std::cout << "rs1: " << static_cast<int>(instruction.rs1) << '\n';
+    std::cout << "rs2: " << static_cast<int>(instruction.rs2) << '\n';
 }
