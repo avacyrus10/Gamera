@@ -1,4 +1,5 @@
 #include <iostream>
+#include "machine/memory.hpp"
 
 #include "machine/cpu.hpp"
 
@@ -14,6 +15,12 @@ int main()
 
     std::cout << "PC: " << cpu.getPC() << '\n';
     std::cout << "R5: " << cpu.getRegister(5) << '\n';
+
+    Memory memory(1024);
+
+memory.writeWord(100, 0x12345678);
+
+std::cout << std::hex << memory.readWord(100) << '\n';
 
     return 0;
 }

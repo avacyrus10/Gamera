@@ -153,6 +153,30 @@ src/machine/cpu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/cpu.cpp.s
 .PHONY : src/machine/cpu.cpp.s
 
+src/machine/memory.o: src/machine/memory.cpp.o
+.PHONY : src/machine/memory.o
+
+# target to build an object file
+src/machine/memory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/memory.cpp.o
+.PHONY : src/machine/memory.cpp.o
+
+src/machine/memory.i: src/machine/memory.cpp.i
+.PHONY : src/machine/memory.i
+
+# target to preprocess a source file
+src/machine/memory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/memory.cpp.i
+.PHONY : src/machine/memory.cpp.i
+
+src/machine/memory.s: src/machine/memory.cpp.s
+.PHONY : src/machine/memory.s
+
+# target to generate assembly for a file
+src/machine/memory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/memory.cpp.s
+.PHONY : src/machine/memory.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... src/machine/cpu.o"
 	@echo "... src/machine/cpu.i"
 	@echo "... src/machine/cpu.s"
+	@echo "... src/machine/memory.o"
+	@echo "... src/machine/memory.i"
+	@echo "... src/machine/memory.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
