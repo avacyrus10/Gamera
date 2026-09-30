@@ -1,0 +1,3 @@
+/home/ava/Documents/Master/gamera/build/CMakeFiles/gamera.dir
+/home/ava/Documents/Master/gamera/build/CMakeFiles/edit_cache.dir
+/home/ava/Documents/Master/gamera/build/CMakeFiles/rebuild_cache.dir

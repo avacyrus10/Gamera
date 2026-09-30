@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/gamera.dir/src/main.cpp.o CMakeFiles/gamera.dir/src/machine/cpu.cpp.o -o gamera 
