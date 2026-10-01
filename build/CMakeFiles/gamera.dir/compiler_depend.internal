@@ -94,6 +94,7 @@ CMakeFiles/gamera.dir/src/machine/cpu.cpp.o
  /usr/include/c++/11/bits/functional_hash.h
  /usr/include/c++/11/bits/hash_bytes.h
  /usr/include/c++/11/bits/vector.tcc
+ /home/ava/Documents/Master/gamera/src/machine/alu.hpp
  /usr/include/c++/11/stdexcept
  /usr/include/c++/11/exception
  /usr/include/c++/11/bits/exception_ptr.h
@@ -197,6 +198,7 @@ CMakeFiles/gamera.dir/src/machine/cpu.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h
  /usr/include/c++/11/bits/charconv.h
  /usr/include/c++/11/bits/basic_string.tcc
+ /home/ava/Documents/Master/gamera/src/machine/isa.hpp
 
 CMakeFiles/gamera.dir/src/machine/decoder.cpp.o
  /home/ava/Documents/Master/gamera/src/machine/decoder.cpp

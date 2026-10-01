@@ -29,11 +29,10 @@ CPU::CPU(Memory& memory)
     }
     void CPU::execute(const Instruction& instruction){
 
-        ALU alu;
         switch (instruction.opcode)
         {
             case RV32I::OP_REG:
-
+                {
                     uint32_t rs1 = getRegister(instruction.rs1);
                     uint32_t rs2 = getRegister(instruction.rs2);
 
@@ -79,9 +78,31 @@ CPU::CPU(Memory& memory)
                     uint32_t result = alu.bitwiseXor(rs1, rs2);
                     setRegister(instruction.rd, result);
 
-
                 }
-                break;                                                                 
+                }
+                break;
+            case RV32I::OP_IMM:
+                {
+                uint32_t rs1 = (instruction.rs1);
+
+                if(instruction.funct3 == RV32I::FUNCT3_ADD_SUB){
+                    uint32_t result = alu.add(rs1, static_cast<uint32_t>(instruction.immediate));
+                    setRegister(instruction.rd, result);
+                }  
+                else if(instruction.funct3 == RV32I::FUNCT3_XOR){
+                    uint32_t result = alu.bitwiseXor(rs1, static_cast<uint32_t>(instruction.immediate));
+                    setRegister(instruction.rd, result);
+                }  
+                else if(instruction.funct3 == RV32I::FUNCT3_OR){
+                    uint32_t result = alu.bitwiseOr(rs1, static_cast<uint32_t>(instruction.immediate));
+                    setRegister(instruction.rd, result);
+                }  
+                else if(instruction.funct3 == RV32I::FUNCT3_AND){
+                    uint32_t result = alu.bitwiseAnd(rs1, static_cast<uint32_t>(instruction.immediate));
+                    setRegister(instruction.rd, result);
+                }  
+                break;  
+            }                                                                                                                
         }
     }
 
