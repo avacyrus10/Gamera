@@ -1,5 +1,5 @@
 #include "decoder.hpp"
-
+#include "isa.hpp"
 Instruction decode(uint32_t raw){
 
     Instruction instruction;
@@ -11,11 +11,29 @@ Instruction decode(uint32_t raw){
     instruction.funct7 = (raw >> 25) & 0x7F;
     uint32_t imm = (raw >> 20) & 0xFFF;
 
+  if(instruction.opcode == RV32I::FUNCT3_LW ||
+        instruction.opcode == RV32I::OP_IMM){
+
     if (imm & 0x800)
     {
         imm |= 0xFFFFF000;
     }
-    instruction.immediate = imm;    
+    instruction.immediate = imm; 
+    instruction.immediate = static_cast<int32_t>(imm);       
+        }
+else if (instruction.opcode == RV32I::OP_STORE)
+{
+    uint32_t imm =
+          ((raw >> 25) & 0x7F) << 5
+        | ((raw >> 7) & 0x1F);
+
+    if (imm & 0x800)
+    {
+        imm |= 0xFFFFF000;
+    }
+
+    instruction.immediate = static_cast<int32_t>(imm);
+}        
 
     return instruction;
 }

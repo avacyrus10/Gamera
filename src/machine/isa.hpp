@@ -28,10 +28,14 @@ namespace RV32I
     constexpr uint32_t FUNCT3_OR      = 0x6;
     constexpr uint32_t FUNCT3_AND     = 0x7;
 
+    constexpr uint32_t FUNCT3_LW = 0x2;
+
 
     // R-type funct7
     constexpr uint32_t FUNCT7_ADD = 0x00;
     constexpr uint32_t FUNCT7_SUB = 0x20;
     constexpr uint32_t FUNCT7_SRL = 0x00;
     constexpr uint32_t FUNCT7_SRA = 0x20;
+
+
 }

@@ -102,7 +102,30 @@ CPU::CPU(Memory& memory)
                     setRegister(instruction.rd, result);
                 }  
                 break;  
-            }                                                                                                                
+            }
+            case RV32I::OP_LOAD:
+            {
+                uint32_t base = getRegister(instruction.rs1);
+                uint32_t offset = static_cast<uint32_t>(instruction.immediate);
+
+                if(instruction.funct3 == RV32I::FUNCT3_LW){
+                    uint32_t address = alu.add(base, offset);
+                    uint32_t result = memory.readWord(address);
+                    setRegister(instruction.rd, result);
+                }
+                break;
+            } 
+            case RV32I::OP_STORE:
+            {
+                uint32_t base = getRegister(instruction.rs1);
+                uint32_t value = getRegister(instruction.rs2);
+                uint32_t offset = static_cast<uint32_t>(instruction.immediate);
+
+                uint32_t address = alu.add(base, offset);
+                memory.writeWord(address, value);
+                
+                break;
+            }                                                                                                                            
         }
     }
 

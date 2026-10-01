@@ -22,4 +22,5 @@ CMakeFiles/gamera.dir/src/machine/decoder.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/ava/Documents/Master/gamera/src/machine/instruction.hpp
+ /home/ava/Documents/Master/gamera/src/machine/instruction.hpp \
+ /home/ava/Documents/Master/gamera/src/machine/isa.hpp
