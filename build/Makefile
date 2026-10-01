@@ -129,6 +129,30 @@ gamera/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/build
 .PHONY : gamera/fast
 
+src/machine/alu.o: src/machine/alu.cpp.o
+.PHONY : src/machine/alu.o
+
+# target to build an object file
+src/machine/alu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/alu.cpp.o
+.PHONY : src/machine/alu.cpp.o
+
+src/machine/alu.i: src/machine/alu.cpp.i
+.PHONY : src/machine/alu.i
+
+# target to preprocess a source file
+src/machine/alu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/alu.cpp.i
+.PHONY : src/machine/alu.cpp.i
+
+src/machine/alu.s: src/machine/alu.cpp.s
+.PHONY : src/machine/alu.s
+
+# target to generate assembly for a file
+src/machine/alu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/alu.cpp.s
+.PHONY : src/machine/alu.cpp.s
+
 src/machine/cpu.o: src/machine/cpu.cpp.o
 .PHONY : src/machine/cpu.o
 
@@ -234,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... gamera"
+	@echo "... src/machine/alu.o"
+	@echo "... src/machine/alu.i"
+	@echo "... src/machine/alu.s"
 	@echo "... src/machine/cpu.o"
 	@echo "... src/machine/cpu.i"
 	@echo "... src/machine/cpu.s"

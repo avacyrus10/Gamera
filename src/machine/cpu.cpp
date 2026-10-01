@@ -1,8 +1,10 @@
 #include "cpu.hpp"
 #include <stdexcept>
+#include "isa.hpp"
+#include "alu.hpp"
 
 CPU::CPU(Memory& memory)
-    : pc(0), registers{}, memory(memory)
+    : pc(0), registers{}, memory(memory), alu{}
 {
 
 }
@@ -25,8 +27,62 @@ CPU::CPU(Memory& memory)
             }
             registers[index] = value;
     }
-    void CPU::execute(const Instruction instruction){
-        //switch-case on opcode
+    void CPU::execute(const Instruction& instruction){
+
+        ALU alu;
+        switch (instruction.opcode)
+        {
+            case RV32I::OP_REG:
+
+                    uint32_t rs1 = getRegister(instruction.rs1);
+                    uint32_t rs2 = getRegister(instruction.rs2);
+
+                if(instruction.funct3 == RV32I::FUNCT3_ADD_SUB &&
+                     instruction.funct7 == RV32I::FUNCT7_ADD){
+
+                    uint32_t result = alu.add(rs1, rs2);
+                    setRegister(instruction.rd, result);
+
+                }
+                else if(instruction.funct3 == RV32I::FUNCT3_ADD_SUB &&
+                     instruction.funct7 == RV32I::FUNCT7_SUB){
+                    uint32_t rs1 = getRegister(instruction.rs1);
+                    uint32_t rs2 = getRegister(instruction.rs2);
+
+                    uint32_t result = alu.sub(rs1, rs2);
+                    setRegister(instruction.rd, result);
+
+
+                }
+                else if(instruction.funct3 == RV32I::FUNCT3_AND){
+                    uint32_t rs1 = getRegister(instruction.rs1);
+                    uint32_t rs2 = getRegister(instruction.rs2);
+
+                    uint32_t result = alu.bitwiseAnd(rs1, rs2);
+                    setRegister(instruction.rd, result);
+
+
+                } 
+                else if(instruction.funct3 == RV32I::FUNCT3_OR){
+                    uint32_t rs1 = getRegister(instruction.rs1);
+                    uint32_t rs2 = getRegister(instruction.rs2);
+
+                    uint32_t result = alu.bitwiseOr(rs1, rs2);
+                    setRegister(instruction.rd, result);
+
+
+                }  
+                else if(instruction.funct3 == RV32I::FUNCT3_XOR){
+                    uint32_t rs1 = getRegister(instruction.rs1);
+                    uint32_t rs2 = getRegister(instruction.rs2);
+
+                    uint32_t result = alu.bitwiseXor(rs1, rs2);
+                    setRegister(instruction.rd, result);
+
+
+                }
+                break;                                                                 
+        }
     }
 
     uint32_t CPU::fetch() const{

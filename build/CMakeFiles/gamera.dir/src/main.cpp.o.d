@@ -155,4 +155,5 @@ CMakeFiles/gamera.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
+ /home/ava/Documents/Master/gamera/src/machine/alu.hpp \
  /home/ava/Documents/Master/gamera/src/machine/decoder.hpp

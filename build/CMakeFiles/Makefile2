@@ -81,12 +81,12 @@ clean: CMakeFiles/gamera.dir/clean
 CMakeFiles/gamera.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ava/Documents/Master/gamera/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target gamera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ava/Documents/Master/gamera/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target gamera"
 .PHONY : CMakeFiles/gamera.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gamera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ava/Documents/Master/gamera/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ava/Documents/Master/gamera/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gamera.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ava/Documents/Master/gamera/build/CMakeFiles 0
 .PHONY : CMakeFiles/gamera.dir/rule

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/gamera.dir/src/machine/alu.cpp.o"
+  "CMakeFiles/gamera.dir/src/machine/alu.cpp.o.d"
   "CMakeFiles/gamera.dir/src/machine/cpu.cpp.o"
   "CMakeFiles/gamera.dir/src/machine/cpu.cpp.o.d"
   "CMakeFiles/gamera.dir/src/machine/decoder.cpp.o"
