@@ -225,6 +225,30 @@ src/machine/memory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/memory.cpp.s
 .PHONY : src/machine/memory.cpp.s
 
+src/machine/pipeline.o: src/machine/pipeline.cpp.o
+.PHONY : src/machine/pipeline.o
+
+# target to build an object file
+src/machine/pipeline.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/pipeline.cpp.o
+.PHONY : src/machine/pipeline.cpp.o
+
+src/machine/pipeline.i: src/machine/pipeline.cpp.i
+.PHONY : src/machine/pipeline.i
+
+# target to preprocess a source file
+src/machine/pipeline.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/pipeline.cpp.i
+.PHONY : src/machine/pipeline.cpp.i
+
+src/machine/pipeline.s: src/machine/pipeline.cpp.s
+.PHONY : src/machine/pipeline.s
+
+# target to generate assembly for a file
+src/machine/pipeline.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gamera.dir/build.make CMakeFiles/gamera.dir/src/machine/pipeline.cpp.s
+.PHONY : src/machine/pipeline.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -270,6 +294,9 @@ help:
 	@echo "... src/machine/memory.o"
 	@echo "... src/machine/memory.i"
 	@echo "... src/machine/memory.s"
+	@echo "... src/machine/pipeline.o"
+	@echo "... src/machine/pipeline.i"
+	@echo "... src/machine/pipeline.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

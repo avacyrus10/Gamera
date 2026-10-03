@@ -2,9 +2,10 @@
 #include <stdexcept>
 #include "isa.hpp"
 #include "alu.hpp"
+#include "pipeline.hpp"
 
 CPU::CPU(Memory& memory)
-    : pc(0), registers{}, memory(memory), alu{}
+    : pc(0), registers{}, memory(memory), alu{}, pipeline{pc, memory, registers}
 {
 
 }
@@ -27,6 +28,7 @@ CPU::CPU(Memory& memory)
             }
             registers[index] = value;
     }
+
     void CPU::execute(const Instruction& instruction){
 
         switch (instruction.opcode)
@@ -129,6 +131,3 @@ CPU::CPU(Memory& memory)
         }
     }
 
-    uint32_t CPU::fetch() const{
-        return memory.readWord(pc);
-    }

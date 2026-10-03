@@ -14,4 +14,5 @@ add_executable(gamera
     src/machine/memory.cpp
     src/machine/decoder.cpp
     src/machine/alu.cpp
+    src/machine/pipeline.cpp
 )

@@ -4,6 +4,7 @@
 #include "instruction.hpp"
 #include "memory.hpp"
 #include "alu.hpp"
+#include "pipeline.hpp"
 class CPU{
 
     private:
@@ -11,6 +12,7 @@ class CPU{
             uint32_t pc;
             Memory& memory;
             ALU alu;
+            Pipeline pipeline;
     public:
 
             CPU(Memory& memory);
@@ -22,7 +24,6 @@ class CPU{
 
             void execute(const Instruction& instruction);
 
-            uint32_t fetch() const;
 
 
 

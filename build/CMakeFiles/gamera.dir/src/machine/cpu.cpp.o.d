@@ -56,6 +56,7 @@ CMakeFiles/gamera.dir/src/machine/cpu.cpp.o: \
  /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/bits/vector.tcc \
  /home/ava/Documents/Master/gamera/src/machine/alu.hpp \
+ /home/ava/Documents/Master/gamera/src/machine/pipeline.hpp \
  /usr/include/c++/11/stdexcept /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \
  /usr/include/c++/11/bits/cxxabi_init_exception.h \

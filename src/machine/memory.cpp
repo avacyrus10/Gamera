@@ -17,12 +17,17 @@ Memory::Memory(std::size_t size)
         }
         return mem[addr];
     }
-    uint32_t Memory::readWord(uint32_t addr) const{
-        if(addr >= mem.size()){
-            throw std::out_of_range("memory address out of range!");
-        }
-        return mem[addr];
-    }    
+    uint32_t Memory::readWord(uint32_t addr) const
+{
+    if (addr + 3 >= mem.size()) {
+        throw std::out_of_range("memory address out of range!");
+    }
+
+    return static_cast<uint32_t>(mem[addr])
+         | (static_cast<uint32_t>(mem[addr + 1]) << 8)
+         | (static_cast<uint32_t>(mem[addr + 2]) << 16)
+         | (static_cast<uint32_t>(mem[addr + 3]) << 24);
+}   
     void Memory::writeWord(uint32_t addr, uint32_t value){
         if(addr + 3 >= mem.size()){
             throw std::out_of_range("memory address out of range!");

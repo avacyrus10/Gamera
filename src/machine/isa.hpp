@@ -29,6 +29,9 @@ namespace RV32I
     constexpr uint32_t FUNCT3_AND     = 0x7;
 
     constexpr uint32_t FUNCT3_LW = 0x2;
+    
+    constexpr uint32_t FUNCT3_BEQ = 0x0;
+    constexpr uint32_t FUNCT3_BNE = 0x1;
 
 
     // R-type funct7
