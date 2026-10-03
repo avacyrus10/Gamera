@@ -1,13 +1,8 @@
 #include "decoder.hpp"
 #include "isa.hpp"
-//delete
-#include <iostream>
 
-//delete
 Instruction decode(uint32_t raw){
-    std::cout << std::hex
-              << "Decoder received: 0x" << raw
-              << std::dec << '\n';
+
 
     Instruction instruction;
     instruction.opcode = raw & 0x7F;

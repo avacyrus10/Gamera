@@ -1,15 +1,15 @@
 #include <iostream>
 #include <iomanip>
 #include <array>
-#include <iostream>
+
 #include "machine/memory.hpp"
 #include "machine/pipeline.hpp"
+#include "machine/alu.hpp"
 
 int main()
 {
-    
     // -----------------------------
-    // Create machine state
+    // Machine state
     // -----------------------------
 
     Memory memory(1024);
@@ -18,9 +18,12 @@ int main()
 
     std::array<uint32_t, 32> registers{};
 
-    // Give x1 and x2 some values
+    // x1 = 10
+    // x2 = 20
     registers[1] = 10;
     registers[2] = 20;
+
+    ALU alu;
 
     // -----------------------------
     // Encode:
@@ -33,61 +36,67 @@ int main()
         | (1    << 15)   // rs1 = x1
         | (0x0  << 12)   // funct3
         | (3    << 7)    // rd = x3
-        | 0x33;           // opcode
+        | 0x33;          // opcode
 
+    std::cout << "Instruction: 0x"
+              << std::hex << add
+              << std::dec << '\n';
 
-    // Put instruction into memory at address 0
+    // Put instruction into memory
     memory.writeWord(0, add);
 
     // -----------------------------
     // Create pipeline
     // -----------------------------
 
-    Pipeline pipeline(pc, memory, registers);
+    Pipeline pipeline(
+        pc,
+        memory,
+        registers,
+        alu
+    );
 
     // -----------------------------
-    // IF stage
+    // Run all five stages
     // -----------------------------
 
+    std::cout << "\n--- IF ---\n";
     pipeline.fetch();
 
-    // -----------------------------
-    // ID stage
-    // -----------------------------
-
+    std::cout << "--- ID ---\n";
     pipeline.decode();
 
+    std::cout << "--- EX ---\n";
+    pipeline.execute();
+
+    std::cout << "--- MEM ---\n";
+    pipeline.memoryAccess();
+
+    std::cout << "--- WB ---\n";
+    pipeline.writeBack();
+
     // -----------------------------
-    // Inspect ID/EX
+    // Check final result
     // -----------------------------
 
-    const ID_EX& id_ex = pipeline.getID_EX();
+    std::cout << "\nFinal register state:\n";
 
-    std::cout << "ID/EX contents:\n";
+    std::cout << "x1 = " << registers[1] << '\n';
+    std::cout << "x2 = " << registers[2] << '\n';
+    std::cout << "x3 = " << registers[3] << '\n';
 
-    std::cout << "PC: "
-              << id_ex.pc
-              << '\n';
+    // -----------------------------
+    // Verify
+    // -----------------------------
 
-    std::cout << "rs1: x"
-              << static_cast<int>(id_ex.instruction.rs1)
-              << '\n';
-
-    std::cout << "rs2: x"
-              << static_cast<int>(id_ex.instruction.rs2)
-              << '\n';
-
-    std::cout << "rd: x"
-              << static_cast<int>(id_ex.instruction.rd)
-              << '\n';
-
-    std::cout << "rs1 value: "
-              << id_ex.rs1_value
-              << '\n';
-
-    std::cout << "rs2 value: "
-              << id_ex.rs2_value
-              << '\n';
+    if (registers[3] == 30)
+    {
+        std::cout << "\nTEST PASSED: x3 = 30\n";
+    }
+    else
+    {
+        std::cout << "\nTEST FAILED: expected x3 = 30\n";
+    }
 
     return 0;
 }

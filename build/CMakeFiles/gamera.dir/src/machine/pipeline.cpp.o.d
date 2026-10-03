@@ -57,4 +57,6 @@ CMakeFiles/gamera.dir/src/machine/pipeline.cpp.o: \
  /home/ava/Documents/Master/gamera/src/machine/instruction.hpp \
  /usr/include/c++/11/array /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
- /home/ava/Documents/Master/gamera/src/machine/decoder.hpp
+ /home/ava/Documents/Master/gamera/src/machine/alu.hpp \
+ /home/ava/Documents/Master/gamera/src/machine/decoder.hpp \
+ /home/ava/Documents/Master/gamera/src/machine/isa.hpp
